@@ -1,0 +1,10 @@
+>>> u = User.query.first()
+
+>>> u.first_name    # SQLAlchemy attribute
+''
+
+>>> u.last_name     # SQLAlchemy attribute
+''
+
+>>> u.get_full_name()
+''
