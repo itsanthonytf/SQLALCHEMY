@@ -1,0 +1,48 @@
+-- Redirect to list of users
+SELECT * FROM users;
+
+SELECT user_id, CONCAT('<a href="user_detail.php?id=', user_id, '">View Details</a>') AS user_link
+FROM users;
+
+<a href="add_user_form.php">Add User</a>
+
+SELECT * FROM users;
+
+-- Process the add form to add a new user
+INSERT INTO users (username, email, password)
+VALUES ('NewUser', 'newuser@example.com', 'password123');
+
+-- Redirect back to /users
+SELECT * FROM users;
+
+SELECT user_id, user_name, email, phone_number,
+       CONCAT('<button>Edit</button>') AS edit_button,
+       CONCAT('<button>Delete</button>') AS delete_button
+FROM users
+WHERE user_id = {user_id};
+
+CREATE PROCEDURE ShowEditPageForUser
+AS
+BEGIN
+    -- Display the edit page for a user
+    SELECT * FROM Users WHERE UserId = @UserId;
+
+    -- Cancel button that returns to the detail page for a user
+    SELECT 'Return to Detail Page' AS CancelButton;
+
+    -- Save button that updates the user
+    SELECT 'Update User' AS SaveButton;
+END;
+
+-- SQL code to process the edit form and redirect the user to the /users page
+-- This code assumes a hypothetical scenario where an edit form is submitted and the user is redirected to the /users page
+
+-- Sample SQL code to process the edit form
+UPDATE users
+SET column1 = value1,
+    column2 = value2
+WHERE user_id = {user_id};
+
+-- Redirect the user to the /users page
+SELECT 'Redirecting to /users page...' AS Message;
+
