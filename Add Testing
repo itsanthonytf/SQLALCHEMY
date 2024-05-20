@@ -1,0 +1,11 @@
+def test_route1():
+    assert True
+
+def test_route2():
+    assert False
+
+def test_route3():
+    assert 1 == 1
+
+def test_route4():
+    assert "hello" != "world"
